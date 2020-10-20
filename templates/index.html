@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>{%block titulo%}Buscador{%endblock titulo%}</title>
+</head>
+<body>
+  <header>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <a class="my-0 mr-md-auto" href="/">
+          <img src="{% static 'img/logo.jpg' %}" alt="logo" width="25"> Inicio
+        </a>
+        <nav class="my-2 my-md-0 mr-md-3">
+          <a class="p-2" href="historial">Historial</a>
+          <a class="p-2" href="#">Manual de Usuario</a>
+        </nav>
+    </div>
+
+  </header>
+  {% block main %}
+  <main>
+  <div class="row justify-content-center align-items-center vh-100">
+    <div class="text-center">
+          <h3 >Busqueda</h3>
+          <form class="flex-column" method="post">
+            {% csrf_token %}
+            <div class="p-1">
+              <input type="text" required class="form-control text-center" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="q" name="q">
+            </div>
+            <div  class="p-2" align="center">
+              <button type="submit" class="btn btn-primary btn-buscar">Buscar</button>
+            </div>
+            <div class="form-check form-check-inline input-group-text ">
+              <div class="p-2">
+                <input class="form-check-input" type="checkbox" value="ml" name='check'><b>Mercado Libre</b>
+              </div>
+              <div class="p-2">
+                <input class="form-check-input" type="checkbox" value="olx" name="check"><b>OLX</b>
+              </div>
+              <div class="p-2">
+                  <input class="form-check-input" type="checkbox" value="amz" name="check"> <b>Amazon</b>
+              </div>
+              <div class="p-2">
+                <input type="number" class="form-control " required placeholder="#Paginas" id="links" name="links" min="1">
+              </div>
+            </DIV>
+          </form>
+
+  </div>
+
+  </main>
+  {%endblock main%}
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html>

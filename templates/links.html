@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block titulo %} Links {% endblock titulo %}
+{% block main %}
+<div class="container p-3">
+  <div class="text-center">
+    <h3> LINKS </h3>
+  </div>
+  <table class="table table-hover">
+    <caption></caption>
+    <thead>
+      <th scope="col">ID BUSQUEDA</th>
+      <th scope="col">ID LINK</th>
+      <th scope="col">URL</th>
+      <th scope="col">BUSCADOR</th>
+    </thead>
+    <tbody>
+      {% for i in links %}
+      <tr>
+        <td>{{i.id_busqueda}}</td>
+        <td>{{i.id_link}}</td>
+        <td>{{i.url}}</td>
+        <td>{{i.buscador}}</td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock main %}

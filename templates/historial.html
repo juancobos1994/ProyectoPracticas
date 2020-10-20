@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block titulo %} Historial {% endblock titulo %}
+{% block main %}
+<div class="container p-3">
+  <table class="table table-hover">
+    <div class="text-center">
+      <h3> HISTORIAL </h3>
+    </div>
+    <thead>
+      <th scope="col">Fecha</th>
+      <th scope="col">Busqueda</th>
+      <th scope="col">#Paginas</th>
+      <th scope="col">Sitios</th>
+      <th scope="col">Ir</th>
+    </thead>
+    <tbody>
+      {% for elemento in elementos %}
+      <tr>
+        <td>{{ elemento.fecha }}</td>
+        <td>{{ elemento.texto }}</td>
+        <td>{{ elemento.n_paginas }}</td>
+        <td>{{ elemento.sitios }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock main %}
